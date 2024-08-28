@@ -5,7 +5,7 @@ describe('Trello API Test', () => {
     // Definir as variáveis necessárias
     const apiUrl = 'https://api.trello.com/1/boards';
     const apiKey = '8316e2888766596b2e87f0900b5018fd';
-    const apiToken = 'ATTA9c1bcc64823c80b0aab61a465311a455e33829f2f66c8409b0288435eeeec082E35539DC';
+    const apiToken = '';
     const boardName = 'Board013';
 
     // Fazer a solicitação POST
