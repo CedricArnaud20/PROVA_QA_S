@@ -1,14 +1,14 @@
 describe('Trello API Test', () => {
   let boardId;
 
-  it('Should create a Trello board', () => {
-    // Definir as variáveis necessárias
-    const apiUrl = 'https://api.trello.com/1/boards';
-    const apiKey = '8316e2888766596b2e87f0900b5018fd';
-    const apiToken = 'ATTA9c1bcc64823c80b0aab61a465311a455e33829f2f66c8409b0288435eeeec082E35539DC';
-    const boardName = 'Board013';
+  const apiUrl = 'https://api.trello.com/1/boards';
+  const apiKey = '8316e2888766596b2e87f0900b5018fd';
+  const apiToken = 'ATTA9c1bcc64823c80b0aab61a465311a455e33829f2f66c8409b0288435eeeec082E35539DC';
+  const boardName = 'Board013';
 
-    // Fazer a solicitação POST
+
+  it('Deve cadastar um novo board', () => {
+
     cy.request({
       method: 'POST',
       url: apiUrl,
@@ -25,5 +25,30 @@ describe('Trello API Test', () => {
       boardId = response.body.id;
       cy.log('Board ID: ' + boardId); // Logar o ID para referência
     });
+
+  });
+
+  it('Deve adicionar um noo carf', () => {
+      cy.request({
+        
+      })
+  });
+
+
+
+  it('Deve excluir o Board cadstradap', () => {
+      const deleteUrl = `https://api.trello.com/1/boards/${boardId}`
+      
+    cy.request({
+      method: 'DELETE',
+      url: deleteUrl,
+      qs:{
+        key: apiKey,
+        token: apiToken
+      }
+    }).then((response) => {
+      expect(response.status).to.eq(200);
+    })
+
   });
 });
