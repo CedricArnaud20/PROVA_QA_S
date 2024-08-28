@@ -4,7 +4,7 @@ describe('Trello API Test', () => {
   it('Should create a Trello board', () => {
     // Definir as variáveis necessárias
     const apiUrl = 'https://api.trello.com/1/boards';
-    const apiKey = '8316e2888766596b2e87f0900b5018fd';
+    const apiKey = '';
     const apiToken = '';
     const boardName = 'Board013';
 
