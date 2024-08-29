@@ -1,9 +1,9 @@
 describe('Trello API Test', () => {
   let boardId;
 
-  const apiUrl = 'https://api.trello.com/1/boards';
-  const apiKey = '8316e2888766596b2e87f0900b5018fd';
-  const apiToken = 'ATTA9c1bcc64823c80b0aab61a465311a455e33829f2f66c8409b0288435eeeec082E35539DC';
+  const apiUrl = '/boards';
+  const apiKey = Cypress.env('apiKey');
+  const apiToken = Cypress.env('apiToken');
   const boardName = 'Board013';
 
 
@@ -27,13 +27,6 @@ describe('Trello API Test', () => {
     });
 
   });
-
-  it('Deve adicionar um noo carf', () => {
-      cy.request({
-        
-      })
-  });
-
 
 
   it('Deve excluir o Board cadstradap', () => {
