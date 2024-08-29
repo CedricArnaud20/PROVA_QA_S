@@ -1,5 +1,5 @@
 describe('Trello API Test', () => {
-  let boardId;
+  let boardId; //váriaivél para guarda o id do board  gerado
 
   const apiUrl = '/boards';
   const apiKey = Cypress.env('apiKey');
@@ -18,24 +18,26 @@ describe('Trello API Test', () => {
         token: apiToken
       }
     }).then((response) => {
-      // Verificar se a resposta foi bem-sucedida
+
       expect(response.status).to.eq(200);
       expect(response.body).to.have.property('name', boardName);
 
+      //capturanto id do board salvando numa const para poder realizar delete
       boardId = response.body.id;
-      cy.log('Board ID: ' + boardId); // Logar o ID para referência
+      cy.log('Board ID: ' + boardId); //
     });
 
   });
 
 
   it('Deve excluir o Board cadstradap', () => {
-      const deleteUrl = `https://api.trello.com/1/boards/${boardId}`
-      
+    //definido url de exclusão
+    const deleteUrl = `/${boardId}`
+
     cy.request({
       method: 'DELETE',
       url: deleteUrl,
-      qs:{
+      qs: {
         key: apiKey,
         token: apiToken
       }
